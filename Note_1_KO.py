@@ -8,7 +8,7 @@ import random as rd
 
 """
 Task 1 Basic : Kamil Orzechowski
-Exec: python main.py <sourcefile_name>
+Exec: python Note_1_KO.py <sourcefile_name>
 Flags:
 -n : min. number of word to print (optional)
 -l : min. length of word to print (optional)
