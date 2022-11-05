@@ -25,7 +25,7 @@ def Get_Sejm():
         parties_info.update({name.text : int(MPS_number.text.split()[0])})
     
     return parties_info
-
+ 
 def main():
     argp = argparse.ArgumentParser()
     argp.add_argument("--filename", default = "output")
