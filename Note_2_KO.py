@@ -34,7 +34,7 @@ class Ising():
         self.steps = steps
         self.dens = dens
         self.matrix = np.random.choice([1,-1],size = (self.n,self.n), p = [self.dens,1-self.dens])
-        self.M = []
+        self.M = np.zeros(self.steps)
         self.gr = []
     
     def Get_E(self,x,y,mark = 1):
@@ -55,14 +55,14 @@ class Ising():
                 x,y = np.random.randint(self.n, size = 2)
                 E_0 = self.Get_E(x,y)
                 E_1 = self.Get_E(x,y,-1)
-                delta = E_1 - E_0
+                delta = E_0 - E_1
                 if delta < 0: 
                     self.matrix[x,y] *= -1
                 else:
                     if rd.uniform(0,1) < np.exp(-self.beta * delta): self.matrix[x,y] *= -1
             if step_tit != None: self.Print_Grid(step,np.mean(self.matrix),step_tit)
             if anim_tit != None: self.gr.append(np.flip(self.matrix.copy(),0))
-            self.M.append(np.mean(self.matrix))
+            self.M[step] = np.mean(self.matrix)
         if anim_tit != None: 
             self.Animate_Grid(anim_tit)
     
