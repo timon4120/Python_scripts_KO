@@ -25,10 +25,6 @@ Flags:
 --magnetization : return a TXT file with 2 columns - timestep and magnetization
 """
 
-# def animate(i):
-#     im = plt.imread('Step_'+str(i)+'.png')
-#     plt.imshow(im)
-
 class Ising():
     def __init__(self,n,J,beta,B,steps,dens):
         self.n = n
@@ -38,17 +34,19 @@ class Ising():
         self.steps = steps
         self.dens = dens
         self.matrix = np.random.choice([1,-1],size = (self.n,self.n), p = [self.dens,1-self.dens])
-        self.XD2 = np.c_[self.matrix[:,-1],self.matrix,self.matrix[:,0]]
-        self.XD2 = np.r_[[self.XD2[-1,:]],self.XD2,[self.XD2[0,:]]]
         self.M = []
         self.gr = []
     
     def Get_E(self,x,y,mark = 1):
-        xx, yy = np.indices(self.XD2.shape)
-        mask = np.hypot(xx - x - 1, yy - y - 1) == 1
-        if mark != 1: self.matrix[x,y] *= -1
-        neighbourhood = -self.J * np.sum(self.matrix[x,y] * self.XD2[mask])
-        field = -self.B * np.sum(self.matrix)
+        temp_x = x
+        temp_y = y
+        mtx = self.matrix.copy()
+        if x == self.n -1: temp_x = 0 
+        if y == self.n -1: temp_y = 0 
+        if mark != 1: mtx[x,y] *= -1 
+        neig = np.array([mtx[temp_x,y],mtx[x,temp_y],mtx[x-1,y],mtx[x,y-1]])
+        neighbourhood = -self.J * np.sum(mtx[x,y]*neig)
+        field = -self.B * mtx[x,y]
         return neighbourhood + field
 
     def Simulation(self,step_tit,anim_tit):
@@ -58,11 +56,12 @@ class Ising():
                 E_0 = self.Get_E(x,y)
                 E_1 = self.Get_E(x,y,-1)
                 delta = E_1 - E_0
-                if delta < 0: pass#self.matrix[x,y] *= -1
+                if delta < 0: 
+                    self.matrix[x,y] *= -1
                 else:
-                    if rd.uniform(0,1) >= np.exp(-self.beta * delta): self.matrix[x,y] *= -1
+                    if rd.uniform(0,1) < np.exp(-self.beta * delta): self.matrix[x,y] *= -1
             if step_tit != None: self.Print_Grid(step,np.mean(self.matrix),step_tit)
-            self.gr.append(np.flip(self.matrix.copy(),0))
+            if anim_tit != None: self.gr.append(np.flip(self.matrix.copy(),0))
             self.M.append(np.mean(self.matrix))
         if anim_tit != None: 
             self.Animate_Grid(anim_tit)
@@ -124,7 +123,7 @@ def main():
         DF = pd.DataFrame({"t" : t, "M" : m})
         DF.to_csv(f"{args.magnetization}.txt", index = False)
         plt.figure(figsize=(15,10))
-        plt.title("Magnetyzacja w funkcji kroku czasowego")
+        plt.title(f"Magnetyzacja w funkcji kroku czasowego | B = {args.b}")
         plt.ylabel("M(t)")
         plt.xlabel("t")
         _ = plt.plot(t,m, color = "violet")
