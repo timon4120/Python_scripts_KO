@@ -18,7 +18,7 @@ Flags:
 -n : shape of grid (n)x(n)
 -j : exchange integral
 -T : temperature (beta = 1/T)
--B : magnetic induction value
+-B : magnetic field value
 -s : number of steps
 -d : spin's density (def = 50%) 
 --stepimage : returns grid figure for every step as PNG file. If you dont't use the flag, the file won't be created as well as in two next cases.
