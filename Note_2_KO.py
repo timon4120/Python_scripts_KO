@@ -17,7 +17,7 @@ Exec: python Note_2_KO.py
 Flags:
 -n : shape of grid (n)x(n)
 -j : exchange integral
--b : beta = 1/kT (k - Boltzmann constant | T - temperature)
+-T : temperature (beta = 1/T)
 -B : magnetic induction value
 -s : number of steps
 -d : spin's density (def = 50%) 
