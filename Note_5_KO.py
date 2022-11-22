@@ -11,8 +11,10 @@ import json
 
 """
 Kamil Orzechowski
+| The program enters the YT website, enters a given phrase in the search engine, 
+| enters the channel and from the movies tab downloads the titles, dates and number of views of movies from N scrolls.
+| Chromedriver.exe is required! YT dynamic scraper :)
 Exec: python Note_5_KO.py 
-Chromedriver.exe is required! YT dynamic scraper :)
 Flags:
 --filename : output .json filename
 --iter : Number of scrolls on the webpage. If you dont't use the flag, default value equals 10.
