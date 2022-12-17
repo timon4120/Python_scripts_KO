@@ -8,3 +8,4 @@ Python PwZN repo :)
 - Note_4_KO: <b> Static Web Scraping: The Sejm</b>
 - Note_5_KO: <b> Dynamic Web Scraping: YouTube</b>
 - Note_6_KO: <b> Ising Model Simulation using Numba</b>
+- Note_7_KO: <b> Simple & damped driven harmonic oscillator</b>
