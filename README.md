@@ -23,7 +23,7 @@
 
 - Sth_1_KO: <b> RabbitMQ Client using multithreading</b>
 
-![results](https://user-images.githubusercontent.com/62968263/208323994-2a1e3900-8483-4223-8cd5-7b52366c236c.PNG)
+![results](https://user-images.githubusercontent.com/62968263/208324140-b0535563-ca67-433f-aad0-e9567eb911b5.PNG)
 
 ---
 <p align = "center">Signal Analysis in Time and Frequency Domain<p>
