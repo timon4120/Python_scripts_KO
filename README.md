@@ -26,6 +26,10 @@
 
 ![results](https://user-images.githubusercontent.com/62968263/208324140-b0535563-ca67-433f-aad0-e9567eb911b5.PNG)
 
+- Sth_2_KO: <b> Faculty of Physics Webpages Network & General purpose link extraction scrapper.</b> (All data publicly available on the Internet) 
+
+![SNIP](https://user-images.githubusercontent.com/62968263/211036063-ab822c3a-fc41-4afc-a28d-721db11bea3e.PNG)
+
 ---
 <p align = "center">Signal Analysis in Time and Frequency Domain<p>
 
