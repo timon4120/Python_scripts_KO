@@ -14,6 +14,7 @@
 - Note_6_KO: <b> Ising Model Simulation using Numba</b>
 - Note_7_KO: <b> Simple & damped driven harmonic oscillator</b>
 - Note_8_KO: <b> Simple SIR model</b>
+- Note_9_KO: <b> SIR model App using [Bokeh](https://bokeh.org)</b>
 
 ![XD (online-video-cutter com) (1)](https://user-images.githubusercontent.com/62968263/205518639-8654ba38-0b0f-4d65-aab3-349b52d2020d.gif)
 
